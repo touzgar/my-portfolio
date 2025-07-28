@@ -90,32 +90,18 @@ const ThemeToggle = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Sparkle Effects */}
-          <AnimatePresence>
-            {theme === 'light' && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2"
-              >
-                <Sparkles className="w-4 h-4 text-white animate-pulse" />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Simplified Effects */}
+          {theme === 'light' && (
+            <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+              <Sparkles className="w-4 h-4 text-white opacity-80" />
+            </div>
+          )}
 
-          <AnimatePresence>
-            {theme === 'dark' && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2"
-              >
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {theme === 'dark' && (
+            <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
+              <div className="w-2 h-2 bg-white rounded-full opacity-80" />
+            </div>
+          )}
         </div>
 
         {/* Hover Glow Effect */}

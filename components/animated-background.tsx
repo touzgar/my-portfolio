@@ -17,58 +17,40 @@ const AnimatedBackground = () => {
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-950 dark:via-blue-950/30 dark:to-purple-950/30" />
       
-      {/* Animated Mesh Gradient */}
-      <motion.div
-        className="absolute inset-0 opacity-30"
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 50%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 80% 20%, #8b5cf6 0%, transparent 50%), radial-gradient(circle at 40% 80%, #ec4899 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 50%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 20% 80%, #8b5cf6 0%, transparent 50%), radial-gradient(circle at 60% 20%, #ec4899 0%, transparent 50%)",
-            "radial-gradient(circle at 40% 20%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 60% 80%, #8b5cf6 0%, transparent 50%), radial-gradient(circle at 20% 50%, #ec4899 0%, transparent 50%)",
-            "radial-gradient(circle at 20% 50%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 80% 20%, #8b5cf6 0%, transparent 50%), radial-gradient(circle at 40% 80%, #ec4899 0%, transparent 50%)"
-          ]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
+      {/* Static Gradient - More performant */}
+      <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10" />
 
-      {/* Floating Orbs */}
-      {[...Array(6)].map((_, i) => {
+      {/* Reduced Floating Orbs - Only 3 for better performance */}
+      {[...Array(3)].map((_, i) => {
         const positions = [
-          { x: 10, y: 20 },
-          { x: 80, y: 10 },
-          { x: 20, y: 70 },
-          { x: 70, y: 80 },
-          { x: 50, y: 30 },
-          { x: 30, y: 60 }
+          { x: 20, y: 30 },
+          { x: 70, y: 20 },
+          { x: 40, y: 70 }
         ];
         const pos = positions[i];
-        
+
         return (
           <motion.div
             key={i}
-            className="absolute w-32 h-32 rounded-full blur-3xl opacity-20"
+            className="absolute w-24 h-24 rounded-full blur-2xl opacity-15"
             style={{
               left: `${pos.x}%`,
               top: `${pos.y}%`,
               background: `linear-gradient(45deg, ${
                 i % 3 === 0 ? '#3b82f6' : i % 3 === 1 ? '#8b5cf6' : '#ec4899'
-              }, transparent)`
+              }, transparent)`,
+              willChange: "transform"
             }}
             animate={{
-              x: [0, 50, -30, 0],
-              y: [0, -30, 50, 0],
-              scale: [1, 1.2, 0.8, 1],
-              rotate: [0, 180, 360],
+              x: [0, 30, -20, 0],
+              y: [0, -20, 30, 0],
+              scale: [1, 1.1, 0.9, 1],
             }}
             transition={{
-              duration: 15 + i * 2,
+              duration: 20 + i * 5,
               repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 2
+              ease: "linear",
+              delay: i * 3
             }}
           />
         );

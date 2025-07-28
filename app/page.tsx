@@ -1,39 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ExternalLink,
-  Code,
-  Palette,
-  Rocket,
-  Download,
-  ArrowDown,
-  Star,
-  Users,
-  Coffee,
-  Phone,
-  MapPin
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Github, ExternalLink, Star, Users, Coffee, Code, Mail, Phone, MapPin, Palette, Rocket, Linkedin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 import FloatingNav from "@/components/floating-nav";
-import ParticleBackground from "@/components/particle-background";
-import TypingAnimation from "@/components/typing-animation";
-import ProjectPlaceholder from "@/components/project-placeholder";
 import ScrollProgress from "@/components/scroll-progress";
 import LoadingScreen from "@/components/loading-screen";
 import FloatingContact from "@/components/floating-contact";
+import ChatInterface from "@/components/chat-interface";
 import InnovativeHero from "@/components/innovative-hero";
 import Card3D from "@/components/3d-card";
 import AnimatedBackground from "@/components/animated-background";
 import AnimatedSkills from "@/components/animated-skills";
 import ThemeToggle from "@/components/theme-toggle";
+import AnimatedCounter from "@/components/animated-counter";
+import FloatingParticles from "@/components/floating-particles";
+import SkillProgress from "@/components/skill-progress";
+import LazyWrapper from "@/components/lazy-wrapper";
 
 export default function Home() {
   const fadeInUp = {
@@ -129,21 +115,22 @@ export default function Home() {
   ];
 
   const stats = [
-    { icon: Star, label: "Projects Completed", value: "50+" },
-    { icon: Users, label: "Happy Clients", value: "25+" },
-    { icon: Coffee, label: "Cups of Coffee", value: "1000+" },
-    { icon: Code, label: "Lines of Code", value: "100K+" }
+    { icon: Star, label: "Projects Completed", value: 50, suffix: "+" },
+    { icon: Users, label: "Happy Clients", value: 25, suffix: "+" },
+    { icon: Coffee, label: "Cups of Coffee", value: 1000, suffix: "+" },
+    { icon: Code, label: "Lines of Code", value: 100, suffix: "K+" }
   ];
 
   return (
     <>
       <LoadingScreen />
       <AnimatedBackground />
+      <FloatingParticles />
       <div className="min-h-screen relative">
         <ScrollProgress />
-        <ParticleBackground />
+
         <FloatingNav />
-        <FloatingContact />
+        <ChatInterface />
 
       {/* Innovative Hero Section */}
       <InnovativeHero />
@@ -168,7 +155,11 @@ export default function Home() {
                   <stat.icon className="h-8 w-8" />
                 </div>
                 <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
-                  {stat.value}
+                  <AnimatedCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    duration={2}
+                  />
                 </div>
                 <div className="text-slate-600 dark:text-slate-400 text-sm">
                   {stat.label}
@@ -293,6 +284,33 @@ export default function Home() {
           </motion.div>
 
           <AnimatedSkills />
+
+          {/* Dynamic Skills Progress - Lazy Loaded */}
+          <LazyWrapper>
+            <motion.div
+              className="mt-16 grid md:grid-cols-2 gap-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Backend Technologies</h3>
+                <SkillProgress skill="Java & Spring Boot" percentage={95} color="#3B82F6" delay={0.1} />
+                <SkillProgress skill="Python & Django" percentage={90} color="#10B981" delay={0.2} />
+                <SkillProgress skill="C# & .NET" percentage={85} color="#8B5CF6" delay={0.3} />
+                <SkillProgress skill="MySQL & PostgreSQL" percentage={88} color="#06B6D4" delay={0.4} />
+              </div>
+
+              <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Frontend Technologies</h3>
+                <SkillProgress skill="Next.js & React" percentage={92} color="#F59E0B" delay={0.1} />
+                <SkillProgress skill="Angular" percentage={87} color="#EF4444" delay={0.2} />
+                <SkillProgress skill="TypeScript" percentage={90} color="#3B82F6" delay={0.3} />
+                <SkillProgress skill="Tailwind CSS" percentage={95} color="#06B6D4" delay={0.4} />
+              </div>
+            </motion.div>
+          </LazyWrapper>
         </div>
       </section>
 
@@ -332,7 +350,18 @@ export default function Home() {
                 <Card3D className="h-full">
                   <Card className="h-full overflow-hidden bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
                     <div className="relative overflow-hidden">
-                      <ProjectPlaceholder title={project.title} tech={project.tech} />
+                      <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <div className="text-center text-white">
+                          <h4 className="text-xl font-bold mb-2">{project.title}</h4>
+                          <div className="flex flex-wrap gap-2 justify-center">
+                            {project.tech.slice(0, 3).map((tech, i) => (
+                              <Badge key={i} variant="secondary" className="bg-white/20 text-white">
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                         <div className="flex space-x-4">
                           <Button

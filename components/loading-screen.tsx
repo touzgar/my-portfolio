@@ -10,14 +10,15 @@ const LoadingScreen = () => {
 
   useEffect(() => {
     setMounted(true);
+    // Faster loading - reduced from 2-3 seconds to 1 second
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(() => setIsLoading(false), 500);
+          setTimeout(() => setIsLoading(false), 200);
           return 100;
         }
-        return prev + 10 + (Math.random() * 5);
+        return prev + 25; // Faster progress
       });
     }, 100);
 

@@ -6,12 +6,20 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Download, ArrowDown, Code, Sparkles, Zap, Rocket, Linkedin } from "lucide-react";
 import Image from "next/image";
-import TypingAnimation from "./typing-animation";
+
 
 const InnovativeHero = () => {
   const [currentWord, setCurrentWord] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [currentText, setCurrentText] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const typingTexts = [
+    "Building innovative web solutions",
+    "Crafting seamless user experiences",
+    "Developing scalable applications",
+    "Creating digital masterpieces"
+  ];
 
   // Only initialize scroll after component is mounted
   const { scrollYProgress } = useScroll({
@@ -33,6 +41,13 @@ const InnovativeHero = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, [words.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentText((prev) => (prev + 1) % typingTexts.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   if (!mounted) return null;
 
@@ -153,15 +168,18 @@ const InnovativeHero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <TypingAnimation 
-                texts={[
-                  "Building innovative web solutions",
-                  "Crafting seamless user experiences", 
-                  "Developing scalable applications",
-                  "Creating digital masterpieces"
-                ]}
-                className="font-medium"
-              />
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentText}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="font-medium"
+                >
+                  {typingTexts[currentText]}
+                </motion.span>
+              </AnimatePresence>
             </motion.div>
 
             {/* Skills Badges */}
@@ -247,31 +265,17 @@ const InnovativeHero = () => {
             transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
           >
             <div className="relative w-80 h-80 mx-auto">
-              {/* Outer Glow Ring */}
-              <motion.div
-                className="absolute -inset-8 rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-2xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.5, 0.8, 0.5]
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
+              {/* Simplified Glow Ring */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 blur-xl opacity-60" />
 
-              {/* Multiple Rotating Borders */}
+              {/* Single Rotating Border - More performant */}
               <motion.div
-                className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1"
+                className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                style={{ willChange: "transform" }}
               >
-                <div className="w-full h-full rounded-full bg-transparent"></div>
-              </motion.div>
-
-              <motion.div
-                className="absolute -inset-2 rounded-full bg-gradient-to-r from-pink-500 via-yellow-500 to-blue-500 p-1"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="w-full h-full rounded-full bg-transparent"></div>
+                <div className="w-full h-full rounded-full bg-white dark:bg-slate-900"></div>
               </motion.div>
 
               {/* Main Image Container with 3D Effect */}
