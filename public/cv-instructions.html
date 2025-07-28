@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Access Instructions - Ghaith Slama</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 2rem;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .steps {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .file-path {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: monospace;
+            color: #333;
+            margin: 1rem 0;
+            word-break: break-all;
+            border-left: 4px solid #2196f3;
+        }
+        .copy-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 0.5rem;
+        }
+        .copy-btn:hover {
+            transform: translateY(-2px);
+        }
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: background 0.2s;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .back-btn:hover {
+            background: #5a6268;
+        }
+        .alternative {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        .alternative h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Access Your CV</h1>
+        
+        <div class="steps">
+            <h3>🔍 How to Access Your CV File:</h3>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Open File Explorer</strong><br>
+                    Press <kbd>Windows + E</kbd> or click the folder icon in taskbar
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Navigate to Desktop</strong><br>
+                    Click on "Desktop" in the left sidebar or type the path below
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Find Your CV File</strong><br>
+                    Look for "Ghaith Slama..pdf" on your Desktop
+                </div>
+            </div>
+        </div>
+        
+        <div class="file-path">
+            <strong>📁 Your CV File Location:</strong><br>
+            C:\Users\user\Desktop\Ghaith Slama..pdf
+        </div>
+        
+        <button class="copy-btn" onclick="copyPath()">
+            📋 Copy File Path
+        </button>
+        
+        <div class="alternative">
+            <h3>💡 Alternative Solution:</h3>
+            <p>For easier access in the future, you can:</p>
+            <ol>
+                <li>Copy your CV file to the portfolio's public folder</li>
+                <li>This will allow direct download from the website</li>
+                <li>Contact the developer to help set this up</li>
+            </ol>
+        </div>
+        
+        <a href="/" class="back-btn">← Back to Portfolio</a>
+    </div>
+
+    <script>
+        function copyPath() {
+            const path = 'C:\\Users\\user\\Desktop\\Ghaith Slama..pdf';
+            try {
+                navigator.clipboard.writeText(path).then(() => {
+                    alert('✅ File path copied to clipboard!\n\nNow paste it in File Explorer address bar.');
+                });
+            } catch (error) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = path;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('✅ File path copied to clipboard!\n\nNow paste it in File Explorer address bar.');
+            }
+        }
+    </script>
+</body>
+</html>
