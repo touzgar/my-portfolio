@@ -18,7 +18,8 @@ const FloatingParticles = () => {
 
   // Memoize particles to prevent recreation on every render
   const particles = useMemo(() => {
-    const colors = ["#3B82F6", "#8B5CF6", "#06B6D4"];
+    // Compatible colors for both light and dark modes
+    const colors = ["#60A5FA", "#A78BFA", "#34D399"]; // Lighter, more compatible blues, purples, and greens
     const newParticles: Particle[] = [];
 
     // Reduced from 20 to 8 particles for better performance

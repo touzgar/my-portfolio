@@ -151,10 +151,10 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-center group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 text-white mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <stat.icon className="h-8 w-8" />
                 </div>
-                <div className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
+                <div className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">
                   <AnimatedCounter
                     value={stat.value}
                     suffix={stat.suffix}
@@ -218,7 +218,7 @@ export default function Home() {
             >
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 text-white shadow-lg">
                     <Code className="h-6 w-6" />
                   </div>
                   <div>
@@ -232,7 +232,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-green-500 to-teal-600 text-white">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-green-500 to-teal-600 dark:from-green-400 dark:to-teal-500 text-white shadow-lg">
                     <Palette className="h-6 w-6" />
                   </div>
                   <div>
@@ -246,7 +246,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-white">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-orange-500 to-red-600 dark:from-orange-400 dark:to-red-500 text-white shadow-lg">
                     <Rocket className="h-6 w-6" />
                   </div>
                   <div>
@@ -294,20 +294,20 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Backend Technologies</h3>
-                <SkillProgress skill="Java & Spring Boot" percentage={95} color="#3B82F6" delay={0.1} />
-                <SkillProgress skill="Python & Django" percentage={90} color="#10B981" delay={0.2} />
-                <SkillProgress skill="C# & .NET" percentage={85} color="#8B5CF6" delay={0.3} />
-                <SkillProgress skill="MySQL & PostgreSQL" percentage={88} color="#06B6D4" delay={0.4} />
+              <div className="card-gradient backdrop-blur-sm rounded-2xl p-8 border-gradient shadow-lg">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-6">Backend Technologies</h3>
+                <SkillProgress skill="Java & Spring Boot" percentage={95} color="#60A5FA" delay={0.1} />
+                <SkillProgress skill="Python & Django" percentage={90} color="#34D399" delay={0.2} />
+                <SkillProgress skill="C# & .NET" percentage={85} color="#A78BFA" delay={0.3} />
+                <SkillProgress skill="MySQL & PostgreSQL" percentage={88} color="#38BDF8" delay={0.4} />
               </div>
 
-              <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Frontend Technologies</h3>
-                <SkillProgress skill="Next.js & React" percentage={92} color="#F59E0B" delay={0.1} />
-                <SkillProgress skill="Angular" percentage={87} color="#EF4444" delay={0.2} />
-                <SkillProgress skill="TypeScript" percentage={90} color="#3B82F6" delay={0.3} />
-                <SkillProgress skill="Tailwind CSS" percentage={95} color="#06B6D4" delay={0.4} />
+              <div className="card-gradient backdrop-blur-sm rounded-2xl p-8 border-gradient shadow-lg">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-6">Frontend Technologies</h3>
+                <SkillProgress skill="Next.js & React" percentage={92} color="#FBBF24" delay={0.1} />
+                <SkillProgress skill="Angular" percentage={87} color="#F87171" delay={0.2} />
+                <SkillProgress skill="TypeScript" percentage={90} color="#60A5FA" delay={0.3} />
+                <SkillProgress skill="Tailwind CSS" percentage={95} color="#38BDF8" delay={0.4} />
               </div>
             </motion.div>
           </LazyWrapper>

@@ -265,17 +265,17 @@ const InnovativeHero = () => {
             transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
           >
             <div className="relative w-80 h-80 mx-auto">
-              {/* Simplified Glow Ring */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 blur-xl opacity-60" />
+              {/* Enhanced Glow Ring for Dark Mode */}
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 dark:from-blue-400/40 dark:via-purple-400/40 dark:to-pink-400/40 blur-xl opacity-60" />
 
-              {/* Single Rotating Border - More performant */}
+              {/* Single Rotating Border - Enhanced for Dark Mode */}
               <motion.div
-                className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1"
+                className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 p-1"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 style={{ willChange: "transform" }}
               >
-                <div className="w-full h-full rounded-full bg-white dark:bg-slate-900"></div>
+                <div className="w-full h-full rounded-full bg-white dark:bg-slate-900/95"></div>
               </motion.div>
 
               {/* Main Image Container with 3D Effect */}

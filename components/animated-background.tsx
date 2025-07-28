@@ -14,8 +14,8 @@ const AnimatedBackground = () => {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-950 dark:via-blue-950/30 dark:to-purple-950/30" />
+      {/* Enhanced Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-slate-950/95 dark:via-blue-950/40 dark:to-purple-950/40" />
       
       {/* Static Gradient - More performant */}
       <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10" />
