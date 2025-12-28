@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import FloatingNav from "@/components/floating-nav";
 import ScrollProgress from "@/components/scroll-progress";
 import LoadingScreen from "@/components/loading-screen";
-import ChatInterface from "@/components/chat-interface";
 import InnovativeHero from "@/components/innovative-hero";
 import Card3D from "@/components/3d-card";
 import AnimatedBackground from "@/components/animated-background";
@@ -34,8 +33,6 @@ export default function Home() {
       }
     }
   };
-
-  // Skill categories defined for reference but main skills are displayed via AnimatedSkills component
 
   const projects = [
     {
@@ -104,7 +101,6 @@ export default function Home() {
         <ScrollProgress />
 
         <FloatingNav />
-        <ChatInterface />
 
       {/* Innovative Hero Section */}
       <InnovativeHero />
@@ -170,14 +166,14 @@ export default function Home() {
               <Card className="p-8 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-0 shadow-xl">
                 <CardContent className="p-0">
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                    I&apos;m a passionate full-stack developer specializing in Java Spring Boot, Next.js,
+                    I&rsquo;m a passionate full-stack developer specializing in Java Spring Boot, Next.js,
                     Python Django, and C#. I create robust, scalable applications that solve real-world
                     problems with clean, efficient code. My expertise spans both frontend and backend
                     development, with a strong focus on modern frameworks and database technologies.
                   </p>
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                     I work with cutting-edge technologies including Angular, React, MySQL, PostgreSQL,
-                    and SQL databases. I'm always eager to learn new technologies and contribute to
+                    and SQL databases. I&rsquo;m always eager to learn new technologies and contribute to
                     innovative projects that make a difference.
                   </p>
                 </CardContent>

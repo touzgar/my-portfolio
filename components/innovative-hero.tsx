@@ -249,10 +249,10 @@ const InnovativeHero = () => {
                 size="lg"
                 variant="outline"
                 className="border-2 border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 group"
-                onClick={() => document.getElementById(&apos;contact&apos;)?.scrollIntoView({ behavior: &apos;smooth&apos; })}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Zap className="h-5 w-5 mr-2 group-hover:animate-pulse" />
-                Let's Connect
+                Let&rsquo;s Connect
               </Button>
             </motion.div>
           </motion.div>
