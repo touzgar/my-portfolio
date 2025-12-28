@@ -51,7 +51,7 @@ const FloatingContact = () => {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
           >
-            {contactOptions.map((option, index) => (
+            {contactOptions.map((option) => (
               <motion.div
                 key={option.label}
                 initial={{ opacity: 0, x: 20, scale: 0.8 }}

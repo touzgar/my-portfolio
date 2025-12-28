@@ -210,7 +210,7 @@ const ChatInterface = () => {
                   <Bot className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Ghaith's Assistant</h3>
+                  <h3 className="font-semibold">Ghaith&apos;s Assistant</h3>
                   <p className="text-xs opacity-90">Online now</p>
                 </div>
                 <motion.div

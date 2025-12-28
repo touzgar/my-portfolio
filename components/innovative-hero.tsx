@@ -47,7 +47,7 @@ const InnovativeHero = () => {
       setCurrentText((prev) => (prev + 1) % typingTexts.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [typingTexts.length]);
 
   if (!mounted) return null;
 
@@ -249,7 +249,7 @@ const InnovativeHero = () => {
                 size="lg"
                 variant="outline"
                 className="border-2 border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 group"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById(&apos;contact&apos;)?.scrollIntoView({ behavior: &apos;smooth&apos; })}
               >
                 <Zap className="h-5 w-5 mr-2 group-hover:animate-pulse" />
                 Let's Connect

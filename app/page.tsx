@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Star, Users, Coffee, Code, Mail, Phone, MapPin, Palette, Rocket, Linkedin } from "lucide-react";
+import { Github, ExternalLink, Star, Users, Coffee, Code, Mail, Phone, Rocket, Linkedin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import FloatingNav from "@/components/floating-nav";
 import ScrollProgress from "@/components/scroll-progress";
 import LoadingScreen from "@/components/loading-screen";
-import FloatingContact from "@/components/floating-contact";
 import ChatInterface from "@/components/chat-interface";
 import InnovativeHero from "@/components/innovative-hero";
 import Card3D from "@/components/3d-card";
@@ -36,32 +35,7 @@ export default function Home() {
     }
   };
 
-  const skillCategories = [
-    {
-      category: "Backend",
-      skills: ["Java", "Spring Boot", "Python", "Django", "C#", ".NET"],
-      color: "from-blue-500 to-cyan-500",
-      icon: "🚀"
-    },
-    {
-      category: "Frontend",
-      skills: ["Next.js", "Angular", "React", "TypeScript", "JavaScript"],
-      color: "from-purple-500 to-pink-500",
-      icon: "🎨"
-    },
-    {
-      category: "Database",
-      skills: ["MySQL", "PostgreSQL", "SQL", "MongoDB", "Redis"],
-      color: "from-green-500 to-emerald-500",
-      icon: "🗄️"
-    },
-    {
-      category: "Tools & Others",
-      skills: ["Git", "Docker", "AWS", "Tailwind CSS", "Bootstrap"],
-      color: "from-orange-500 to-red-500",
-      icon: "🛠️"
-    }
-  ];
+  // Skill categories defined for reference but main skills are displayed via AnimatedSkills component
 
   const projects = [
     {
@@ -145,7 +119,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <motion.div
                 key={stat.label}
                 variants={fadeInUp}
@@ -196,7 +170,7 @@ export default function Home() {
               <Card className="p-8 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-0 shadow-xl">
                 <CardContent className="p-0">
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                    I'm a passionate full-stack developer specializing in Java Spring Boot, Next.js,
+                    I&apos;m a passionate full-stack developer specializing in Java Spring Boot, Next.js,
                     Python Django, and C#. I create robust, scalable applications that solve real-world
                     problems with clean, efficient code. My expertise spans both frontend and backend
                     development, with a strong focus on modern frameworks and database technologies.
@@ -233,7 +207,7 @@ export default function Home() {
 
                 <div className="flex items-center space-x-4">
                   <div className="p-3 rounded-full bg-gradient-to-br from-green-500 to-teal-600 dark:from-green-400 dark:to-teal-500 text-white shadow-lg">
-                    <Palette className="h-6 w-6" />
+                    <Code className="h-6 w-6" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
@@ -341,7 +315,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <motion.div
                 key={project.title}
                 variants={fadeInUp}
@@ -509,11 +483,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-              Let's Work Together
+              Let&apos;s Work Together
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
             <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-              Have a project in mind? I'd love to hear about it. Let's create something amazing together.
+              Have a project in mind? I&apos;d love to hear about it. Let&apos;s create something amazing together.
             </p>
 
             <motion.div
